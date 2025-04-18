@@ -13,7 +13,8 @@
     - name: "Confirm repo is successful or not"
       debug:
         msg: "Copied successful"
-      when x: is succeeded
+
+      when: x is succeeded
 
 
     - name: "Install terraform"
