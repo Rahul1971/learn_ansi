@@ -1,5 +1,6 @@
 - name: "Install sysfsutils"
-  hosts: 172.31.83.226
+  hosts: localhost
+  connection: local
   become: true
   tasks:
     - name: "Check sysfsutils present or not"
