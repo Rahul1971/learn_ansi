@@ -22,8 +22,7 @@ resource "aws_security_group" "ssh_access" {
 }
 resource "aws_key_pair" "example5" {
   key_name = "allowall" # Change this to your desired key name# Path to the public key file (typically generated with ssh-keygen)
-
-  #public_key = ""
+  public_key = file("~/.ssh/id_rsa.pub")
 
 }
 
