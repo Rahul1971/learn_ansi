@@ -1,19 +1,31 @@
-- name: "Install sysfsutils"
+- name: "Install terraform"
   hosts: localhost
   connection: local
   become: true
   tasks:
-    - name: "Check sysfsutils present or not"
-      dnf:
-        name: sysfsutils
-        state: present
+
+    - name: "Download Terraform repo"
+      get_url:
+        url: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+        dest: /etc/yum.repos.d/terraform.repo
       register: x
 
-    - name: "Install sysfsutils if not present"
+    - name: "Confirm repo is sucessful or not"
+      debug:
+        msg: "Copied successful"
+      when x: is succeeded
+
+
+    - name: "Install terraform"
       dnf:
-        name: sysfsutils
+        name: terraform
         state: present
-      when: x is failed
+
+    - name: "Terraform installed"
+      debug:
+        msg: "Terraform Installed"
+
+
 
 #    - name: "Start sysfsutils service"
 #      systemd:
