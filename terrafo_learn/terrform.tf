@@ -20,11 +20,11 @@ resource "aws_security_group" "ssh_access" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-resource "aws_key_pair" "example5" {
-  key_name = "allowall" # Change this to your desired key name# Path to the public key file (typically generated with ssh-keygen)
-  public_key = file("~/.ssh/id_rsa.pub")
-
-}
+# resource "aws_key_pair" "example5" {
+#   key_name = "allowall" # Change this to your desired key name# Path to the public key file (typically generated with ssh-keygen)
+#   public_key = file("~/.ssh/id_rsa.pub")
+#
+# }
 
 
 resource "aws_instance" "testserve2" {
