@@ -1,0 +1,22 @@
+- name: "Install ansible"
+  hosts: 172.31.83.226
+  become: true
+  tasks:
+    - name: "Check Ansible present or not"
+      dnf:
+        name: ansible
+        state: present
+      register: x
+
+    - name: "Install ansible if not present"
+      dnf:
+        name: ansible
+        state: present
+      when: x is failed
+
+    - name: "Start Ansible service"
+      systemd:
+        name: ansible
+        enabled: yes
+
+
