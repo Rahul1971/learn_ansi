@@ -1,22 +1,22 @@
-- name: "Install ansible"
+- name: "Install sysfsutils"
   hosts: 172.31.83.226
   become: true
   tasks:
-    - name: "Check Ansible present or not"
+    - name: "Check sysfsutils present or not"
       dnf:
-        name: ansible
+        name: sysfsutils
         state: present
       register: x
 
-    - name: "Install ansible if not present"
+    - name: "Install sysfsutils if not present"
       dnf:
-        name: ansible
+        name: sysfsutils
         state: present
       when: x is failed
 
-    - name: "Start Ansible service"
-      systemd:
-        name: ansible
-        enabled: yes
+#    - name: "Start sysfsutils service"
+#      systemd:
+#        name: sysfsutils
+#        enabled: yes
 
 
