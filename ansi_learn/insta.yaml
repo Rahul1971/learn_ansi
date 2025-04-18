@@ -10,7 +10,7 @@
         dest: /etc/yum.repos.d/terraform.repo
       register: x
 
-    - name: "Confirm repo is sucessful or not"
+    - name: "Confirm repo is successful or not"
       debug:
         msg: "Copied successful"
       when x: is succeeded
